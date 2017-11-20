@@ -20,11 +20,11 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_home:
-
+                case R.id.pick_color:
+                        pickColor();
                     return true;
-                case R.id.navigation_dashboard:
-                    
+                case R.id.addPhoto:
+
                     return true;
                 case R.id.navigation_notifications:
 
@@ -58,4 +58,8 @@ public class MainActivity extends AppCompatActivity {
         //start activity to take a picture here
     }
 
+
+    private void pickColor(){
+
+    }
 }
