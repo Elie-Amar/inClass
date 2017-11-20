@@ -1,6 +1,5 @@
 package com.encours.elie.myapplication;
 
-import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -8,8 +7,8 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 
 
@@ -23,9 +22,10 @@ import me.panavtec.drawableview.DrawableViewConfig;
 
 
 public class MainActivity extends AppCompatActivity  implements ColorPickerDialogListener {
-    private static final int DIALOG_ID = 0;
+    private static final int DIALOG_ID = 2;
 
     private FloatingActionButton addPhoto;
+    private FloatingActionButton pickColor;
     private int currentColor = Color.BLACK;
     private boolean editMode = false;
     DrawableView drawableView;
@@ -37,18 +37,13 @@ public class MainActivity extends AppCompatActivity  implements ColorPickerDialo
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.pick_color:
-                         editMode=false;
-                        pickColor();
-                    preventDrawing();
-                    return true;
+                      return true;
+
                 case R.id.edit_photo:
-                    editMode = true;
                     DrawOnImage();
-
-
                 return true;
+
                 case R.id.navigation_notifications:
-                    editMode=false;
                     preventDrawing();
 
 
@@ -77,6 +72,16 @@ public class MainActivity extends AppCompatActivity  implements ColorPickerDialo
 
         drawableView = (DrawableView) findViewById(R.id.paintView);
 
+        pickColor = (FloatingActionButton) findViewById(R.id.pickColor);
+        pickColor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                pickColor();
+                DrawOnImage();
+
+
+            }
+        });
 
     }
 
@@ -108,7 +113,6 @@ public class MainActivity extends AppCompatActivity  implements ColorPickerDialo
         switch (dialogId) {
             case DIALOG_ID:
                 setCurrentColor(color);
-
                 break;
         }
     }
@@ -119,23 +123,28 @@ public class MainActivity extends AppCompatActivity  implements ColorPickerDialo
 
     private void DrawOnImage(){
         //current color
-        if(editMode){
+
+            drawableView.setVisibility(View.VISIBLE);
             DrawableViewConfig config = new DrawableViewConfig();
             config.setStrokeColor(currentColor);
             config.setShowCanvasBounds(true); // If the view is bigger than canvas, with this the user will see the bounds (Recommended)
             config.setStrokeWidth(20.0f);
             config.setMinZoom(1.0f);
             config.setMaxZoom(3.0f);
-            config.setCanvasHeight(1080);
-            config.setCanvasWidth(1920);
+            DisplayMetrics dm = new DisplayMetrics();
+            getWindowManager().getDefaultDisplay().getMetrics(dm);
+            int width=dm.widthPixels;
+            int height=dm.heightPixels;
+            config.setCanvasHeight(height);
+            config.setCanvasWidth(width);
             drawableView.setConfig(config);
-        }
+
     }
 
     private void preventDrawing()
     {
         if(!editMode)
-            drawableView.setConfig(null);
+            drawableView.setVisibility(View.INVISIBLE);
 
     }
 

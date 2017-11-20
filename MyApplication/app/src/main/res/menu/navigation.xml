@@ -2,14 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/edit_photo"
+        android:icon="@drawable/ic_mode_edit_black_24dp"
+        android:title="@string/title_edit" />
+
+
+    <item
         android:id="@+id/pick_color"
         android:icon="@drawable/ic_color_lens_black_24dp"
         android:title="@string/title_pickcolor" />
 
-    <item
-        android:id="@+id/edit_photo"
-        android:icon="@drawable/ic_mode_edit_black_24dp"
-        android:title="@string/title_edit" />
 
     <item
         android:id="@+id/navigation_notifications"
