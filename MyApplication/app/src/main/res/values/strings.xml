@@ -2,5 +2,7 @@
     <string name="app_name">My Application</string>
     <string name="title_pickcolor">Pick a color</string>
     <string name="title_edit">Draw</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_galleryPhoto">Pick a photo</string>
+    <string name="title_takePhoto">Take a Photo</string>
+    <string name="title_animation">Add animation</string>
 </resources>

@@ -16,15 +16,7 @@
 
 
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/pickColor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:clickable="true"
-            app:srcCompat="@drawable/ic_color_lens_black_24dp" />
+
 
         <ImageView
             android:id="@+id/photoTaken"
@@ -34,28 +26,6 @@
             android:layout_alignParentStart="true"
             app:srcCompat="@android:color/background_light" />
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/galleryButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/addPhoto"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:clickable="true"
-            android:focusable="true"
-            android:src="@drawable/ic_add_a_photo_black_24dp"
-            app:backgroundTint="@color/colorAccent" />
-
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/addPhoto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:clickable="true"
-            app:srcCompat="@drawable/ic_add_a_photo_black_24dp" />
 
         <me.panavtec.drawableview.DrawableView
             android:id="@+id/paintView"
